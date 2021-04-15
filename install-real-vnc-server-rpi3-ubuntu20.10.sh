@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script that will install RealVNC on Raspberry Pi 8gb with Ubuntu 20.10 64bit
+# Script that will install RealVNC on Raspberry Pi 3 B+ with Ubuntu 20.10 32bit
 # Based on instructions from https://www.raspberrypi.org/forums/viewtopic.php?t=288769
 # Thanks to soma72 for the original instructions and pucasso, kazin08 and Ghost_Rider51 for cracking the code
 # This script is built based on their efforts.
@@ -8,12 +8,12 @@
 # I know I will be using it on my other RPis
 
 
-vncServer="realvnc-vnc-server_6.7.2.43081_arm64.deb"
+vncServer="realvnc-vnc-server_6.7.2.42622_armhf.deb"
 
 
-echo "You are about to install RealVNC Server for RaspberryPi4 8gb"
+echo "You are about to install RealVNC Server for RaspberryPi3 B+"
 echo $vncServer
-echo "Running OS Ubuntu 20.10 64bit"
+echo "..running OS Ubuntu 20.10 32bit"
 echo
 echo
 
@@ -32,9 +32,9 @@ if [[ $answer == 'y' || $answer == 'Y' ]]; then
     # Install package
     sudo dpkg -i $vncServer
 
-    # Change over to the aarch64-linux-gnu folder under /usr/lib
+    # Change over to the arm-linux-gnueabihf folder under /usr/lib
     # Source file location of libs needed
-    cd "/usr/lib/aarch64-linux-gnu" || exit
+    cd "/usr/lib/arm-linux-gnueabihf" || exit
 
 
     # Array of the files that are needed to create the lib symlinks
@@ -51,7 +51,7 @@ if [[ $answer == 'y' || $answer == 'Y' ]]; then
     do
       # Will create sym links for the following files
       # Note it will create the symlink file with .0 appended under the /usr/lib folder
-      sourceFile="/usr/lib/aarch64-linux-gnu/"$fileName
+      sourceFile="/usr/lib/arm-linux-gnueabihf"$fileName
       symlinkFile="/usr/lib/$fileName.0"
       echo "attempting to create symlink file \"$symlinkFile\"..."
       sudo ln -s "$sourceFile" "$symlinkFile"
