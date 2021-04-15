@@ -45,14 +45,14 @@ By pucasso, kazin08 and Ghost_Rider51
 This will be helpful when having to do this across several RPis.
 BASH Script based on those documented steps.
 
-[install-real-vnc-server-rpi3-ubuntu20.04.sh](install-real-vnc-server-rpi3-ubuntu20.04.sh)
+[install-real-vnc-server-rpi3-ubuntu20.10.sh](install-real-vnc-server-rpi3-ubuntu20.10.sh)
 
 To run it you must run as sudo 
 
     # chmod the script first
-    chmod +x install-real-vnc-server-rpi3-ubuntu20.04.sh
+    chmod +x install-real-vnc-server-rpi3-ubuntu20.10.sh
     
-    sudo ./install-real-vnc-server-rpi3-ubuntu20.04.sh
+    sudo ./install-real-vnc-server-rpi3-ubuntu20.10.sh
     
 **E.g.**
 
