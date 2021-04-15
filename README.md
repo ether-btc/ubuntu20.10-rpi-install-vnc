@@ -1,6 +1,6 @@
-# Installing VNC on Raspberry Pi 4 8gb with Ubuntu 20.10 64bit
-This was done so that the enablement of RealVNC on Raspberry PI 4 8GB running
-Ubuntu Groovy Gorilla (20.10) 64bit could work
+# Installing VNC on Raspberry Pi 3B+ with Ubuntu 20.10 32bit
+This was done so that the enablement of RealVNC on Raspberry PI 3 B+ running
+Ubuntu Groovy Gorilla (20.10) 32bit could work
 
 Found this on: https://www.raspberrypi.org/forums/viewtopic.php?t=288769[](https://www.raspberrypi.org/forums/viewtopic.php?t=288769)
 
@@ -12,13 +12,14 @@ With their instructions below
 By pucasso, kazin08 and Ghost_Rider51
 
 	# Download package required
-	wget https://archive.raspberrypi.org/debian/pool/main/r/realvnc-vnc/realvnc-vnc-server_6.7.2.43081_arm64.deb
+	# source: http://archive.raspberrypi.org/debian/pool/main/r/realvnc-vnc/
+	wget https://archive.raspberrypi.org/debian/pool/main/r/realvnc-vnc/realvnc-vnc-server_6.7.2.42622_armhf.deb
 	
 	# Install package
-	sudo dpkg -i realvnc-vnc-server_6.7.2.43081_arm64.deb
+	sudo dpkg -i realvnc-vnc-server_6.7.2.42622_armhf.deb
 
-	# Change over to the aarch64-linux-gnu folder under /usr/lib
-	cd /usr/lib/aarch64-linux-gnu
+	# Change over to the arm-linux-gnueabihf folder under /usr/lib
+	cd /usr/lib/arm-linux-gnueabihf
 
 	# As sudo create symlinks to the following files
 	sudo ln libvcos.so /usr/lib/libvcos.so.0
@@ -42,29 +43,29 @@ By pucasso, kazin08 and Ghost_Rider51
 	
 # Script to autoinstall
 This will be helpful when having to do this across several RPis.
-BASH Script based on those documentd steps.
+BASH Script based on those documented steps.
 
-[install-real-vnc-server-rpi4-8gb-ubuntu20.04_64.sh](install-real-vnc-server-rpi4-8gb-ubuntu20.04_64.sh)
+[install-real-vnc-server-rpi3-ubuntu20.04.sh](install-real-vnc-server-rpi3-ubuntu20.04.sh)
 
 To run it you must run as sudo 
 
     # chmod the script first
-    chmod +x install-real-vnc-server-rpi4-8gb-ubuntu20.04_64.sh
+    chmod +x install-real-vnc-server-rpi3-ubuntu20.04.sh
     
-    sudo ./install-real-vnc-server-rpi4-8gb-ubuntu20.04_64.sh
+    sudo ./install-real-vnc-server-rpi3-ubuntu20.04.sh
     
 **E.g.**
 
-    You are about to install RealVNC Server for RaspberryPi4 8gb
-    realvnc-vnc-server_6.7.2.43081_arm64.deb
-    Running OS Ubuntu 20.10 64bit
+    You are about to install RealVNC Server for Raspberry Pi 3
+    realvnc-vnc-server_6.7.2.42622_armhf.deb
+    Running OS Ubuntu 20.10 32bit
     
     
     Would you like to continue?
     Enter 'y' for yes or 'n' for No :
     y
     
-    Installing VNC Server : realvnc-vnc-server_6.7.2.43081_arm64.deb...
+    Installing VNC Server : realvnc-vnc-server_6.7.2.42622_armhf.deb...
     
     attempting to create symlink file /usr/lib/libvchiq_arm.so.0...
     attempting to create symlink file /usr/lib/libbcm_host.so.0...
@@ -80,7 +81,7 @@ To run it you must run as sudo
 
     Enabling and starting the service vncserver-virtuald.service...
     Enabling and starting the service vncserver-x11-serviced.service...
-    RealVNC Server : realvnc-vnc-server_6.7.2.43081_arm64.deb has been installed.
+    RealVNC Server : realvnc-vnc-server_6.7.2.42622_armhf.deb has been installed.
 
     System needs to be rebooted.
     Would you like to reboot it now?
